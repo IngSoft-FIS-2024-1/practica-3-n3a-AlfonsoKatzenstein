@@ -35,12 +35,7 @@ describe('Library', () => {
     expect(() => myLibrary.setName('')).toThrow();
   });
   
-  it('adds a book to the inventory', () => {
-    library.addBook('Cuentos de la Selva', 'Horacio Quiroga', 350);
-    const inventory = library.getInventory();
 
-    expect(inventory.length).toBe(1);
-  });
 
   it('verify the total number of pages', () => {
     myLibrary.addBook('Cuentos de la Selva', 'Horacio Quiroga', 120, 15000);

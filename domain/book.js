@@ -9,7 +9,7 @@ class Book {
     this.setTitle(title);
     this.setAuthor(author);
     this.setPages(pages);
-    this.setWords(words)
+    this.setWords(words);
   }
 
   getTitle() {
@@ -41,11 +41,11 @@ class Book {
 
   setAuthor(author) {
     if (typeof (author) !== 'string') {
-      throw new Error()
+      throw new Error();
     }
     author = author.trim();
     if (author.length === 0) {
-      author = "Anónimo";
+      author = 'Anónimo';
     }
     this.#author = author;
   }
@@ -63,7 +63,7 @@ class Book {
 
   setWords(words) {
     if(typeof(words) !== 'number' || isNaN(words) || words < 0){
-      throw new Error('Error: el numero debe ser un numero')
+      throw new Error('Error: el numero debe ser un numero');
     } else{
       this.#words = words;
     }
