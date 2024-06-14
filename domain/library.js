@@ -35,13 +35,22 @@ class Library {
     return this.#inventory;
   }
 
+  getTotalWords(){
+    return this.#totalWords;
+  }
+
   totalBooks() {
     return this.#inventory.length;
   }
 
   totalWords() {
-    // TODO
+    let total=0;
+    this.#inventory.forEach(item => {
+      total+= item.getWords();
+    });
+    return total;
   }
+
 }
 
 export default Library;

@@ -10,15 +10,15 @@ describe('Library', () => {
   });
 
   it('add a book to the library', () => {
-    myLibrary.addBook('Cuentos de la Selva', 'Horacio Quiroga', 120);
+    myLibrary.addBook('Cuentos de la Selva', 'Horacio Quiroga', 120, 15000);
     const aBook = myLibrary.getInventory()[myLibrary.getInventory().length - 1];
     expect(aBook).toBeInstanceOf(Book);
     expect(aBook.getTitle()).toBe('Cuentos de la Selva');
   });
 
   it('return the total number of books', () => {
-    myLibrary.addBook('Cuentos de la Selva', 'Horacio Quiroga', 120);
-    myLibrary.addBook('El Hombre que Calculaba', 'Malba Tahan', 286);
+    myLibrary.addBook('Cuentos de la Selva', 'Horacio Quiroga', 120, 15000);
+    myLibrary.addBook('El Hombre que Calculaba', 'Malba Tahan', 286, 15000);
     expect(myLibrary.totalBooks()).toBe(2);
   });
 
@@ -30,8 +30,24 @@ describe('Library', () => {
   it('throw an error when setting an invalid name', () => {
     expect(() => myLibrary.setName(123)).toThrow();
   });
+
   it('throw an error when setting an empty name', () => {
-    // TODO
+    expect(() => myLibrary.setName('')).toThrow();
   });
+  
+  it('adds a book to the inventory', () => {
+    library.addBook('Cuentos de la Selva', 'Horacio Quiroga', 350);
+    const inventory = library.getInventory();
+
+    expect(inventory.length).toBe(1);
+  });
+
+  it('verify the total number of pages', () => {
+    myLibrary.addBook('Cuentos de la Selva', 'Horacio Quiroga', 120, 15000);
+    myLibrary.addBook('El Hombre que Calculaba', 'Malba Tahan', 286, 5000);
+    expect(myLibrary.totalWords()).toBe(20000);
+  });
+
+  
 
 });
